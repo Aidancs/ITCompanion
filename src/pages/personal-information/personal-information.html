@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Personal Information
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div *ngIf="!set">
+        <ion-item>
+            <ion-label color="primary">Name</ion-label>
+            <ion-input [value]="name" [(ngModel)]="name"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">Age</ion-label>
+            <ion-input type="number" [value]="age" [(ngModel)]="age"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">Height</ion-label>
+            <ion-input  [value]="height" [(ngModel)]="height"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">Weight</ion-label>
+            <ion-input  [value]="weight" [(ngModel)]="weight"></ion-input>
+        </ion-item>
+        <button ion-button tappable (tap)="saveChanges()" round>Save</button>
+    </div>
+    <div *ngIf="set">Name: {{ name }}</div>
+    <div *ngIf="set">Age: {{ age }}</div>
+    <div *ngIf="set">Height: {{ height}}</div>
+    <div *ngIf="set">Weight: {{ weight }} pounds</div>
+</ion-content>

@@ -1,40 +1,55 @@
 import { NgModule, ErrorHandler } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { IonicStorageModule } from '@ionic/storage';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
+import { WorkoutModal } from '../pages/workout-modal/workout-modal'
+
+import { PersonalInformationPage } from '../pages/personal-information/personal-information';
+import { ExercisesPage } from '../pages/exercises/exercises';
 import { TabsPage } from '../pages/tabs/tabs';
+import { WorkoutsPage } from '../pages/workouts/workouts';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { ExercisesServiceProvider } from '../providers/exercises-service/exercises-service';
+import { WorkoutServiceProvider } from '../providers/workout-service/workout-service';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    PersonalInformationPage,
+    ExercisesPage,
+    TabsPage,
+    WorkoutModal,
+    WorkoutsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpModule,
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    PersonalInformationPage,
+    ExercisesPage,
+    TabsPage,
+    WorkoutModal,
+    WorkoutsPage,
   ],
   providers: [
+      AuthServiceProvider,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    [{provide: ErrorHandler, useClass: IonicErrorHandler}],
+    WorkoutServiceProvider,
+    ExercisesServiceProvider
   ]
 })
 export class AppModule {}

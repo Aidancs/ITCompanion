@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Exercises</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let exercise of exercises">
+            <div>
+                <div>{{ exercise.exercise_name }}</div>
+            </div>
+        </ion-item>
+    </ion-list>
+</ion-content>
