@@ -5,24 +5,42 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-list>
-        <div>
-            <div>Workout Date: <input type="text"></div>
-            <div>Notes: <input type="text"></div>
-            <div>Type of Class: <input type="number"></div>
-            <div>Count for Work: <input type="number"></div>
-            <div>Prescribed: <input type="number"></div>
-            <div>Athlete: <input type="text"></div>
-        </div>
-    </ion-list>
-    <ion-list>
-        <ion-item *ngFor="let exercise of exercises">
-            <div class="flex-1 max-w-lg px-6 py-4 bg-grey-light rounded overflow-hidden shadow-lg">
-                <input type="checkbox" name="exercise_select[]" value="{{ exercise.exercise_id }}">{{ exercise.exercise_name }}
-            </div>
+        <ion-item>
+            <ion-label color="primary">Workout Date:</ion-label>
+            <ion-input [(ngModel)]="workout_date" placeholder="01/01/2018"></ion-input>
         </ion-item>
-    </ion-list>
-<button ion-button block (tap)="addWorkout()">Add Workout</button>
+        <ion-item>
+            <ion-label color="primary">Workout Description:</ion-label>
+            <ion-textarea [(ngModel)]="workout_description" placeholder="Enter a description"></ion-textarea>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">Results:</ion-label>
+            <ion-input [(ngModel)]="results"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">Type of Class:</ion-label>
+            <ion-input [(ngModel)]="workout_type" placeholder="Power/Push"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">Count for Work:</ion-label>
+            <ion-input [(ngModel)]="count_for_work"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">Prescribed:</ion-label>
+            <ion-input [(ngModel)]="prescribed"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">Athlete:</ion-label>
+            <ion-input [(ngModel)]="athlete"></ion-input>
+        </ion-item>
+        <ion-list>
+            <ion-item *ngFor="let exercise of exercises">
+                <div class="flex-1 max-w-lg px-6 py-4 bg-grey-light rounded overflow-hidden shadow-lg">
+                    <input type="checkbox" name="exercise_select[]" value="{{ exercise.exercise_id }}">{{ exercise.exercise_name }}
+                </div>
+            </ion-item>
+        </ion-list>
+<button ion-button type="submit" block (tap)="addWorkout()">Add Workout</button>
 <button ion-button block (tap)="closeModal()">Close Modal</button>
 
 </ion-content>

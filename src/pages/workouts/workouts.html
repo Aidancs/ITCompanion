@@ -9,10 +9,11 @@
         <ion-item *ngFor="let workout of workouts">
             <div>
                 <div>Workout Date: {{ workout.workout_date }}</div>
-                <p>Notes: {{ workout.notes }}</p>
+                <p>Workout Description: {{ workout.workout_description }}</p>
+                <p>Results: {{ workout.results }}</p>
                  <!-- TODO change the p tag to a drop down style thing that opens the rest of the
                 text. OR just display all the text  -->
-                <div>Type of class: {{ workout.type_of_class ? 'Power' : 'Push' }}</div>
+                <div>Type of class: {{ workout.workout_type ? 'Power' : 'Push' }}</div>
                 <div>Count for work: {{ workout.count_for_work ? 'Yes' : 'No' }}</div>
                 <div>Prescribed: {{ workout.prescribed ? 'Yes' : 'No' }}</div>
                 <div>Athlete: {{ workout.user_id }}</div>

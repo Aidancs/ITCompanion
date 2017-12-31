@@ -28,13 +28,11 @@ export class WorkoutsPage {
     getWorkouts() {
         this.workoutService.getWorkouts().subscribe((workout_data) => {
             this.workouts = workout_data;
-            console.log(workout_data)
         });
     }
 
     openCreateWorkoutModal() {
         let workoutModal = this.modalCtrl.create(WorkoutModal);
-
         workoutModal.present();
     }
 }
