@@ -20,8 +20,10 @@ import { WorkoutsPage } from '../pages/workouts/workouts';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ExercisesServiceProvider } from '../providers/exercises-service/exercises-service';
+import { SignupServiceProvider } from '../providers/signup-service/signup-service';
 import { WorkoutServiceProvider } from '../providers/workout-service/workout-service';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { UserService } from '../services/user-service/user-service';
 
 
 @NgModule({
@@ -61,6 +63,8 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
     StatusBar,
     SplashScreen,
     [{provide: ErrorHandler, useClass: IonicErrorHandler}],
+    SignupServiceProvider,
+    UserService,
     WorkoutServiceProvider,
     ExercisesServiceProvider
   ]

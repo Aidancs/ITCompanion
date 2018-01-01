@@ -1,29 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
 
 // Base
-import { BaseHttpService } from '../../services/base-http/base-http.service'
+import { BaseHttpService } from '../../services/base-http/base-http.service';
 
 @Injectable()
-export class WorkoutServiceProvider extends BaseHttpService {
+export class SignupServiceProvider extends BaseHttpService {
 
     constructor(public http: Http) {
-      super();
+        super();
     }
 
-    getApiUrl: string = 'http://127.0.0.1:8000/api/workout/';
+    getApiUrl: string = 'http://127.0.0.1:8000/api/register/';
 
-    getWorkouts() {
-        return this.http.get(this.getApiUrl)
-            .do(res => res.json())
-            .map(res => res.json());
-    }
-
-    saveWorkout(workout) {
-        let body = JSON.stringify(workout);
+    saveSignup(signup) {
+        let body = JSON.stringify(signup);
         let headers = new Headers({
             "Content-type": "application/json"
         });
@@ -41,9 +32,5 @@ export class WorkoutServiceProvider extends BaseHttpService {
                     //What to do if there is an error
                 }
             );
-    //     console.log(workout, 'in workout service')
-    //     return this.http.post(this.getApiUrl, workout)
-    //         .do (res => console.log(res.json()))
-    //         .subscribe();
     }
 }

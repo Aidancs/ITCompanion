@@ -1,25 +1,56 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the SignupPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { WelcomePage } from '../welcome/welcome';
+import { TabsPage } from '../tabs/tabs';
+
+// Services
+import { SignupServiceProvider } from '../../providers/signup-service/signup-service';
 
 @IonicPage()
 @Component({
-  selector: 'page-signup',
-  templateUrl: 'signup.html',
+    selector: 'page-signup',
+    templateUrl: 'signup.html',
 })
 export class SignupPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    name: string = '';
+    email: string = '';
+    password: string = '';
+    height: string = '';
+    weight: string = '';
+    age: string = '';
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SignupPage');
-  }
+    constructor(
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        public signupSvc: SignupServiceProvider,
+    ) {
+    }
 
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad SignupPage');
+    }
+
+    signup() {
+            // var payload = {
+            //     name: this.name,
+            //     email: this.email,
+            //     password: this.password,
+            //     height: this.height,
+            //     weight: this.weight,
+            //     age: this.age,
+            // }
+            var payload = {
+                name: 'test',
+                email: 'test',
+                password: 'test',
+                height: 'test',
+                weight: 223,
+                age: 39,
+            }
+
+        this.signupSvc.saveSignup(payload);
+        this.navCtrl.push(TabsPage);
+    }
 }

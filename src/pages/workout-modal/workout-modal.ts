@@ -65,8 +65,9 @@ export class WorkoutModal {
     }
 
     getExercises() {
-        this.exercisesSvc.getExercises().subscribe((exercises_data) => {
-            this.exercises = exercises_data;
-        });
+        this.exercisesSvc.getExercises()
+            .subscribe((exercises_data) => {
+                this.exercises = exercises_data;
+            });
     }
 }

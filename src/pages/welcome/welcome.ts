@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, App } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { SignupPage } from '../signup/signup';
 
@@ -8,7 +8,10 @@ import { SignupPage } from '../signup/signup';
     templateUrl: 'welcome.html',
 })
 export class WelcomePage {
-    constructor(public navCtrl: NavController) {
+    constructor(
+        public navCtrl: NavController,
+        public app: App,
+    ) {
     }
 
     login() {
@@ -17,5 +20,9 @@ export class WelcomePage {
 
     signup() {
         this.navCtrl.push(SignupPage);
+    }
+
+    logout() {
+        this.navCtrl.push(WelcomePage);
     }
 }
